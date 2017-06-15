@@ -1,0 +1,24 @@
+{
+  "name": "describejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "@felixfong227 <moongod101@hotmail.com> (https://felixfong227.ml)",
+  "license": "MIT",
+  "description": "Describe your code, so somebody else can understand it right a way",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs-promise": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0"
+  },
+  "bin": {
+    "describe": "src/describe.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixfong227/describejs"
+  }
+}
