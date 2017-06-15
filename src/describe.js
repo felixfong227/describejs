@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const cli = require('commander');
 const path = require('path');
 const fs = require('fs-promise');
