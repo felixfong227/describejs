@@ -1,4 +1,4 @@
-const ponyName = require('./rd.js');
+const ponyName = require('../rd/rd.js');
 console.log(`Pinkie Loves ${ponyName.ponyName}`);
 
 /*

@@ -2,6 +2,7 @@
 const cli = require('commander');
 const path = require('path');
 const fs = require('fs-promise');
+const readDir = require('fs-readdir-recursive');
 
 const cwd = process.cwd();
 
@@ -41,24 +42,20 @@ fs.lstat(lookUpPath)
             // Is a directory
 
             // check each files
-            fs.readdir(lookUpPath)
-                .then((files) => {
-                    files.forEach((fileName) => {
-                        fs.readFile(path.join(`${lookUpPath}/${fileName}`), 'utf-8')
-                            .then((content) => {
-                                coreCheck(content, fileName);
-                            })
-                            .catch((error) => {
-                                console.log(error);
-                            });
-                    });
+
+            const files = readDir(lookUpPath);
+            files.forEach((fileName) => {
+                fs.readFile(path.join(`${lookUpPath}/${fileName}`), 'utf-8')
+                .then((content) => {
+                    coreCheck(content, fileName);
                 })
                 .catch((error) => {
                     console.log(error);
                 });
+            });
         } else {
             return fs.readFile(lookUpPath, 'utf-8')
-                .then(content => coreCheck(content, cli.args[0]));
+                    .then(content => coreCheck(content, cli.args[0]));
         }
         return true;
     })
