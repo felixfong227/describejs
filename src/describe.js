@@ -16,13 +16,15 @@ const lookUpPath = path.join(`${cwd}/${cli.args[0]}`);
 function coreCheck(content, fileName) {
     if (fileName.endsWith('.js')) {
         // Is a JS file
-        const describeSyntax = new RegExp(/\/\*\ndescribe:/);
+        const describeSyntax = new RegExp(/\/\*([\s\S]*?)\*\//igm);
         if (content.match(describeSyntax)) {
             // Get the describe context
             console.log(`\n${fileName}:`);
             // Get the context
-            const context = content.match(/\/\*([\s\S]*?)\*\//igm);
-            console.log(`${context}`);
+            const context = content.match(describeSyntax);
+            context.forEach((describeSyntaxContext) => {
+                console.log(`\n${describeSyntaxContext}\n`);
+            });
         } else {
             throw new Error(`${path.join(`${lookUpPath}/${fileName}/ `)}do not contain describe syntax`);
         }
