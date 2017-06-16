@@ -5,8 +5,10 @@ const fs = require('fs-promise');
 
 const cwd = process.cwd();
 
+// Read the package.json file
+const packageJSON = JSON.parse(fs.readFileSync(path.join(`${__dirname}/../package.json`), 'utf-8'));
 cli
-  .version('1.0.0')
+  .version(packageJSON.version)
   .parse(process.argv);
 
 
