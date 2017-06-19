@@ -26,6 +26,8 @@ function coreCheck(content, fileName) {
             // Get the context
             const context = content.match(describeSyntax);
             context.forEach((describeSyntaxContext) => {
+                // Remove 2(tab) or 4(tab) space characters
+                describeSyntaxContext = describeSyntaxContext.replace(/ {2}| {4}/igm, '');
                 console.log(`\n${describeSyntaxContext}\n`);
             });
         } else {

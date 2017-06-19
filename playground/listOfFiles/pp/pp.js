@@ -18,3 +18,12 @@ describe:
 Turn the pony name to upper case letters
 */
 const uppercaseCasePonyName = ponyName.ponyName.toUpperCase();
+
+function sayName(yourName) {
+    /*
+    describe:
+    Greeting to user
+    @return String
+    */
+    return `Greeting ${yourName}`;
+}
