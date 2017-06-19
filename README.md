@@ -31,3 +31,26 @@ describe:
 */
 ```
 You can add `describe syntax` any where you want inside you JS file
+
+# Expect return type
+`expect return type` lets you told other developer what this functino or JSON should return
+
+```javascript
+/*
+describe:
+<description>
+@return <1 to 8 characters>
+*/
+```
+
+```javascript
+const stuff = {
+    name: 'Felx',
+    /*
+    describe:
+    The age MUST be a number!
+    @return number
+    */
+    age: 16
+}
+```
