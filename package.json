@@ -6,6 +6,7 @@
   "license": "MIT",
   "description": "Describe your code, so somebody else can understand it right a way",
   "dependencies": {
+    "cli-color": "^1.2.0",
     "commander": "^2.9.0",
     "fs-promise": "^2.0.3",
     "fs-readdir-recursive": "^1.0.0"
